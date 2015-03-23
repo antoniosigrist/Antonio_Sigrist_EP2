@@ -113,7 +113,7 @@ while erros < 6 and acertos < len(comp_word): #while game is not over
         
         if str(jogada) == str(comp_word[i]):
             print ("Acertou!--",jogada.upper(), "--eh uma letra da palavra na POSICAO", i+1)
-            #comp_word[i] = str("0") #a letter can't be counted twice NOT WORKING
+            #comp_word[i] = str("0") 
             if erros < 0:
                 erros = 0            
             acertos += 1
