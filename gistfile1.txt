@@ -27,7 +27,6 @@ subida2 = 180
 direita2 = 100
 desce2 = 140
 
-
 boneco.right(angulo1)  #F
 boneco.backward(subida1)
 boneco.right(angulo1)
@@ -112,14 +111,13 @@ while erros < 6 and acertos < len(comp_word): #while game is not over
     for i in range (len(comp_word)):  
         
         if str(jogada) == str(comp_word[i]):
-            print ("Acertou!--",jogada.upper(), "--eh uma letra da palavra na POSICAO", i+1)
-            #comp_word[i] = str("0") 
+            print ("Acertou!--",jogada.upper(), "-- eh uma letra da palavra na POSICAO", i+1)
+            #comp_word[i] = str("0") #a letter can't be counted twice NOT WORKING
             if erros < 0:
                 erros = 0            
             acertos += 1
             erros += -1
             
-    
     erros += 1
     
     m = media(acertos,erros)
@@ -127,7 +125,6 @@ while erros < 6 and acertos < len(comp_word): #while game is not over
     
     print ("A sua media de acertos eh de",int(m),"%")
     print ("A sua probabilidade de voce acertar a proxima letra eh de",int(p),"%")
-    
     print ("ACERTOS:",acertos, "ERROS:",erros)
     
     if erros == 1:
@@ -382,7 +379,7 @@ if erros == 6: #playerlost
         
         window.exitonclick()
         
-        print ("VOCE FOI ENFORCADO!! ")
+        print ("VOCE FOI ENFORCADO!! A palavra era",comp_word.upper())
 
 if acertos == len(comp_word): #playerwon
-    print ("Parabens! Voce venceu o jogo!!")
+    print ("Parabens! Voce venceu o jogo!! A palavra era",comp_word.upper())
