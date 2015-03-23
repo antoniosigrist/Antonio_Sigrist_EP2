@@ -1,0 +1,388 @@
+# -*- coding: utf-8 -*-
+"""
+By Antonio Sigrist
+Spyder Editor
+
+This is a temporary script file.
+"""
+    
+from random import randint
+import turtle
+window = turtle.Screen()
+window.bgcolor("orange")
+window.title("Jogo da Forca")
+
+boneco = turtle.Turtle()
+boneco.speed(6)
+boneco.penup()
+boneco.setpos(-240,-100)
+boneco.pendown()
+boneco.color("black")
+
+angulo1 = 90
+subida1 = 320
+direita1 = 150
+desce1 = 50
+subida2 = 180
+direita2 = 100
+desce2 = 140
+
+
+boneco.right(angulo1)  #F
+boneco.backward(subida1)
+boneco.right(angulo1)
+boneco.backward(direita1)
+boneco.right(angulo1)
+boneco.backward(desce1)
+boneco.backward(-desce1)
+boneco.right(-angulo1)
+boneco.backward(-direita1)
+boneco.right(-angulo1)
+boneco.forward(desce2)
+boneco.right(angulo1)
+boneco.backward(direita2) #O
+
+boneco.backward(-direita2)
+boneco.right(-angulo1)
+boneco.forward(180)
+boneco.right(angulo1)
+boneco.backward(60)
+boneco.right(-angulo1)
+boneco.backward(60)
+boneco.right(angulo1)
+boneco.backward(60)
+boneco.right(angulo1)
+boneco.backward(60)
+boneco.right(angulo1)
+boneco.backward(60)
+boneco.forward(100)
+
+boneco.right(-angulo1) #R
+boneco.forward(60)
+boneco.right(angulo1)
+boneco.forward(55)
+boneco.right(angulo1)
+boneco.forward(30)
+boneco.right (angulo1)
+boneco.forward(55)
+boneco.left(150)
+boneco.forward(60)
+boneco.right(-30)
+boneco.forward(50)
+
+boneco.left(angulo1) #C
+boneco.forward(60)
+boneco.right(angulo1)
+boneco.forward(60)
+boneco.backward(60)
+boneco.right(angulo1)
+boneco.forward(60)
+boneco.right(angulo1)
+boneco.forward(-60)
+
+boneco.right(120) #A
+boneco.forward(70)
+boneco.right(120)
+boneco.forward(70)
+boneco.backward(30)
+boneco.left(60)
+boneco.backward(40)
+boneco.forward(40)
+
+window.exitonclick()
+
+def media(x,y):
+    return (x/(x+y))*100
+    
+def probabilidade(q,w,e):
+    return ((e-q)/(26-q-w))*100
+    
+acertos = 0
+erros = 0  
+
+lista = ["abacate","abacaxi","hortela","ovelha","macarrao","carneiro","chocolate","espinafre","tabuleiro","analfabeto","farmacia"]
+
+comp_word = lista[randint(0,len(lista))]
+
+while erros < 6 and acertos < len(comp_word): #while game is not over
+
+    print ("A palavra tem" , len(comp_word), "letras!")
+    jogada = input("Insira uma letra\n")
+
+    for i in range (len(comp_word)):  
+        
+        if str(jogada) == str(comp_word[i]):
+            print ("Acertou!--",jogada.upper(), "--eh uma letra da palavra na POSICAO", i+1)
+            #comp_word[i] = str("0") #a letter can't be counted twice NOT WORKING
+            if erros < 0:
+                erros = 0            
+            acertos += 1
+            erros += -1
+            
+    
+    erros += 1
+    
+    m = media(acertos,erros)
+    p = probabilidade(acertos,erros,len(comp_word))
+    
+    print ("A sua media de acertos eh de",int(m),"%")
+    print ("A sua probabilidade de voce acertar a proxima letra eh de",int(p),"%")
+    
+    print ("ACERTOS:",acertos, "ERROS:",erros)
+    
+    if erros == 1:
+        window = turtle.Screen()
+        window.bgcolor("orange")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        
+        window.exitonclick()
+    if erros == 2:
+        
+        window = turtle.Screen()
+        window.bgcolor("orange")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.forward(-30)
+        boneco.right(-angulo1)
+        boneco.forward(-60)
+        boneco.right(-angulo1)
+        boneco.forward(-30)
+        boneco.left(angulo1)
+        boneco.forward(150)
+        
+        window.exitonclick()
+        
+    if erros == 3:
+        
+        window = turtle.Screen()
+        window.bgcolor("orange")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.forward(-30)
+        boneco.right(-angulo1)
+        boneco.forward(-60)
+        boneco.right(-angulo1)
+        boneco.forward(-30)
+        boneco.left(angulo1)
+        boneco.forward(150)
+        boneco.backward(95)
+        boneco.left(120)
+        boneco.forward(70)
+        
+        window.exitonclick()
+        
+    if erros == 4:
+        
+        window = turtle.Screen()
+        window.bgcolor("orange")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.forward(-30)
+        boneco.right(-angulo1)
+        boneco.forward(-60)
+        boneco.right(-angulo1)
+        boneco.forward(-30)
+        boneco.left(angulo1)
+        boneco.forward(150)
+        boneco.backward(95)
+        boneco.left(120)
+        boneco.forward(70)
+        boneco.forward(-70)
+        boneco.left(120)
+        boneco.forward(70)
+        
+        window.exitonclick()
+        
+    if erros == 5:
+        
+        window = turtle.Screen()
+        window.bgcolor("orange")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.forward(-30)
+        boneco.right(-angulo1)
+        boneco.forward(-60)
+        boneco.right(-angulo1)
+        boneco.forward(-30)
+        boneco.left(angulo1)
+        boneco.forward(150)
+        boneco.backward(95)
+        boneco.left(120)
+        boneco.forward(70)
+        boneco.forward(-70)
+        boneco.left(120)
+        boneco.forward(70)
+        boneco.backward(70)
+        boneco.left(120)
+        boneco.forward(95)
+        boneco.left(45)
+        boneco.forward(80)
+        
+        window.exitonclick()
+
+if erros == 6: #playerlost
+        window = turtle.Screen()
+        window.bgcolor("red")
+        window.title("Jogo da Forca")
+
+        boneco = turtle.Turtle()
+        boneco.speed(6)
+        boneco.penup()
+        boneco.setpos(-240,-100)
+        boneco.pendown()
+        boneco.color("black")
+        boneco.right(angulo1)  #F
+        boneco.backward(subida1)
+        boneco.right(angulo1)
+        boneco.backward(direita1)
+        boneco.right(angulo1)
+        boneco.backward(desce1)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(60)
+        boneco.right(angulo1)
+        boneco.forward(30)
+        boneco.forward(-30)
+        boneco.right(-angulo1)
+        boneco.forward(-60)
+        boneco.right(-angulo1)
+        boneco.forward(-30)
+        boneco.left(angulo1)
+        boneco.forward(150)
+        boneco.backward(95)
+        boneco.left(120)
+        boneco.forward(70)
+        boneco.forward(-70)
+        boneco.left(120)
+        boneco.forward(70)
+        boneco.backward(70)
+        boneco.left(120)
+        boneco.forward(95)
+        boneco.left(45)
+        boneco.forward(80)
+        boneco.backward(80)
+        boneco.left(-angulo1)
+        boneco.forward(80)
+        
+        window.exitonclick()
+        
+        print ("VOCE FOI ENFORCADO!! ")
+
+if acertos == len(comp_word): #playerwon
+    print ("Parabens! Voce venceu o jogo!!")
